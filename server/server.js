@@ -1,10 +1,13 @@
 const express = require("express");
 const dbConnect = require("./dbConnect/dbConnection");
 const app = express();
-const dotenv = require("dotenv");
+const routes = require("./routes/routes.js");
 
-//Load environment variables from .env file
-dotenv.config;
+
+app.use("/", routes)
+app.get("/", (req, res) => {
+    res.send("Backend is working");
+})
 
 //listening to the server
 app.listen(3333, () => {
