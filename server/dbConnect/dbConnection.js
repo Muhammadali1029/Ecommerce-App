@@ -7,7 +7,7 @@
 
  const dbConnect = async () => {
     try {
-        await mongoose.connect(process.env.DB_URL || "mongodb+srv://ali:ali123@atlascluster.g2vtiqo.mongodb.net/");
+        await mongoose.connect(process.env.DB_URL || "mongodb+srv://ali:ali123@atlascluster.g2vtiqo.mongodb.net/e-commerce-app");
         console.log("Database has been connected successfully");
         console.log("ENV output try " + process.env.DB_URL);
     } catch (error) {
