@@ -29,7 +29,7 @@ const productModel = new Schema({
         type: String,
     },
     price: {
-        type: String,
+        type: Number,
     }
 },
 {
