@@ -2,8 +2,11 @@ const Product = require("../models/product.model.js");
 
 const createProduct = async (req, res) => {
     try {  
+        const categories = req.body.categories ? req.body.categories.split(",")
+        : [];
         const newProduct = new Product({
             ...req.body,
+            categories: categories,
             image: req.file.path,
         });
         await newProduct.save();
