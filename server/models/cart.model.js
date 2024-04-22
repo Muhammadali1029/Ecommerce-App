@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const carttModel = new Schema({
+const cartModel = new Schema({
     userId: {
         type: String,
         required: true,
