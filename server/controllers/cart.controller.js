@@ -84,10 +84,37 @@ const getAllCartItems = async (req, res) => {
     }
 };
 
+const createCartItem = async (req, res) => {
+    const { productId, quantity } = req.body;
+    const { userId } = req.user; // Assuming userId is available from the authenticated user
+    
+    try {
+        const cartItem = new Cart({
+            userId,
+            productId,
+            quantity,
+        });
+
+        await cartItem.save();
+        res.status(201).json({
+            message: "Product added to cart",
+            cartItem,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: "An error occurred while adding product to cart",
+            error: error.message,
+        });
+    }
+};
+
+
 module.exports = {
     createCart,
     updateCart,
     deleteCart,
     getCartItem,
     getAllCartItems,
+    createCartItem,
 };
